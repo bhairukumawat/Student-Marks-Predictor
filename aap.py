@@ -32,8 +32,8 @@ def predict():
 
     # input and predicted value store in df then save in csv file
     df = pd.concat([df, pd.DataFrame({'Study Hours': input_features, 'Predicted Output': [output]})], ignore_index=True)
-    print(df)
-    df.to_csv('smp_data_from_app.csv')
+    
+    
 
     return render_template('index.html',
                            prediction_text='You will get [{}%] marks, when you do study [{}] hours per day '.format(
@@ -41,4 +41,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)
